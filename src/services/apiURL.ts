@@ -1,15 +1,15 @@
-import type { APIResponse } from '../types/APIResponse';
+import type { APIResponse } from "../types/APIResponse";
 
-const API_URL = import.meta.env.VITE_LOCAL_API_URL;
+const API_URL = import.meta.env.VITE_REMOTE_API_URL;
 
 export async function createShortURL(
   originURL: string,
   urlCode?: string
 ): Promise<APIResponse> {
   const response = await fetch(`${API_URL}/urlRecord`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({ originURL, ...(urlCode && { urlCode }) }),
   });

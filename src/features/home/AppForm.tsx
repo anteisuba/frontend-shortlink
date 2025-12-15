@@ -1,9 +1,9 @@
-import { useForm } from 'react-hook-form';
-import validator from 'validator';
+import { useForm } from "react-hook-form";
+import validator from "validator";
 
-import FormError from '../../ui/FormError';
-import { useGenerateForm } from '../../hooks/useGenerateForm';
-import type { AppFormInput } from '../../types/AppFormInput';
+import FormError from "../../ui/FormError";
+import { useGenerateForm } from "../../hooks/useGenerateForm";
+import type { AppFormInput } from "../../types/AppFormInput";
 
 function AppForm() {
   const {
@@ -24,13 +24,13 @@ function AppForm() {
         <legend className="fieldset-legend text-2xl">Your Origin URL</legend>
         <textarea
           className={`textarea textarea-lg h-48 sm:w-1/2 w-full ${
-            errors.originURL ? 'input-error' : ''
+            errors.originURL ? "input-error" : ""
           }`}
           placeholder="The URL you want to shorten"
-          {...register('originURL', {
-            required: 'Origin URL is required',
+          {...register("originURL", {
+            required: "Origin URL is required",
             validate: (value) => {
-              return validator.isURL(value) || 'Invalid URL';
+              return validator.isURL(value) || "Invalid URL";
             },
           })}
         />
@@ -44,13 +44,13 @@ function AppForm() {
         </legend>
 
         <label className="sm:w-1/2 input input-lg w-full">
-          https://alexshorturl.com/
+          https://generate-short-url.onrender.com/
           <input
             type="text"
             className="grow"
             maxLength={8}
             placeholder="Custom URL code"
-            {...register('urlCode')}
+            {...register("urlCode")}
           />
         </label>
       </fieldset>
